@@ -2,3 +2,5 @@
 
 # OpenBooksUI
 ReactJS front end for [OpenBooks](https://github.com/berryman17/OpenBooks). This repo provides the default UI but the OpenBooks API can support many UI implementations and mobile apps.
+
+![OpenBooks UI Concept](https://i.ibb.co/LJSfsn1/Open-Books-concept-01-25-2020.png "OpenBooks UI Concept")
