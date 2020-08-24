@@ -1,0 +1,29 @@
+@use 'themify';
+
+//desktop styles
+.logo {
+  margin-right: 10px;
+  max-height: 50px;
+  border-radius: 4px;
+  border: solid white 3px;
+}
+
+.title {
+  font-size: 2em !important;
+}
+
+.appBar {
+  z-index: 9999 !important;
+  .title {
+    flex: 1;
+  }
+}
+
+.pop-context.settings.paper {
+  width: 150px;
+}
+
+.pop-context.settings.btn {
+  width: 100%;
+}
+

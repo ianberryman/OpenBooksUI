@@ -1,0 +1,29 @@
+
+$themes: (
+        light: (
+                primary: #3f51b5,
+                secondary: #3d5afe,
+                textPrimary: #212121,
+                textSecondary: #000,
+                backgroundColor: #f0f0f0,
+                tile: #fff,
+                paper: #fff,
+                boxShadow: (0px 2px 1px -1px rgba(0,0,0,0.2), 0px 1px 1px 0px rgba(0,0,0,0.14), 0px 1px 3px 0px rgba(0,0,0,0.12)),
+                orangeGradient: linear-gradient(#f0a714, #ff2100),
+                greenGradient: linear-gradient(#14f06c, #0093ff),
+                blueGradient: linear-gradient(#00edff, #6114f0)
+        ),
+        dark: (
+                primary: #3f51b5,
+                secondary: #3d5afe,
+                textPrimary: #e0e0e0,
+                textSecondary: #000,
+                backgroundColor: #141b2d,
+                tile: #a4a4a4,
+                paper: #354363,
+                boxShadow: none,
+                orangeGradient: linear-gradient(#f0a714, #ff2100),
+                greenGradient: linear-gradient(#14f06c, #0093ff),
+                blueGradient: linear-gradient(#00edff, #6114f0)
+        ),
+);

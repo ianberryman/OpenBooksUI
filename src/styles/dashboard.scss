@@ -1,0 +1,103 @@
+@use 'themify';
+
+.dashboard {
+  height: 88%;
+  width: 100%;
+  padding: 2em 2em 2em 2em;
+  overflow-y: hidden;
+
+  .quickCountGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    row-gap: 1.5em;
+    column-gap: 1.5em;
+  }
+
+  .dashboardGrid {
+    height: 88%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    row-gap: 1.5em;
+    column-gap: 1.5em;
+    padding: 1.5em 0 1.5em 0;
+  }
+
+  .tile {
+    @include themify.themify() {
+      height: 100%;
+      background-color: themify.themed('paper');
+      padding: 0.5em 1.3em 1em 1.3em;
+
+      .title {
+        font-size: 1.1em !important;
+        font-weight: bold;
+      }
+    }
+  }
+
+  .trendsTile {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 2;
+  }
+
+  .calendarTile {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 2;
+    grid-row-end: 3;
+  }
+
+  .summaryTile {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 3;
+  }
+
+  .customerActivityTile {
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 1;
+    grid-row-end: 3;
+  }
+}
+
+.quickCountTile {
+  color: #fff !important;
+  padding: 35px 40px 10px 40px;
+}
+
+.quickCountTile .subject {
+  font-size: 1.4em !important;
+  width: 110px;
+}
+.quickCountTile .count {
+  font-size: 2.0em !important;
+  font-weight: bold;
+}
+.quickCountTile .arrowIcon {
+  font-size: 2.8em !important;
+}
+.quickCountTile .rate {
+  font-size: 1.6em !important;
+}
+
+@media screen and (max-width: 900px) {
+  .dashboard {
+    overflow-y: auto;
+
+    .quickCountGrid {
+      display: flex;
+      flex-direction: column;
+    }
+    .dashboardGrid {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+  }
+}

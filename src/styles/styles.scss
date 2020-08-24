@@ -1,0 +1,122 @@
+@use 'themify';
+
+// desktop styles
+#root {
+    @include themify.themify() {
+        height: 100vh;
+        background-color: themify.themed('backgroundColor');
+    }
+}
+
+html {
+    overflow-y: hidden;
+    height: 100vh;
+}
+
+header {
+    @include themify.themify() {
+        background-color: themify.themed('primary');
+    }
+}
+
+.drawer {
+    whiteSpace: nowrap;
+}
+
+.drawerPaper {
+    @include themify.themify() {
+        position: relative;
+        width: 180px;
+        height: 100%;
+        background-color: themify.themed("paper");
+        color: themify.themed("textPrimary");
+        .MuiSvgIcon-root {
+            color: themify.themed("textPrimary");
+        };
+    }
+}
+
+.content {
+    height: 100%;
+    width: calc(100% - 180px);
+    overflow-y: auto;
+    padding: 0 !important;
+    margin: 0 0 0 0 !important;
+}
+
+.tile {
+    @include themify.themify() {
+        background-color: themify.themed("paper");
+        color: themify.themed("textPrimary");
+
+        a {
+            color: themify.themed("textPrimary");
+        }
+
+        h2 {
+            color: themify.themed("textPrimary");
+        }
+    }
+}
+
+.paper {
+    @include themify.themify() {
+        background-color: themify.themed('paper');
+        color: themify.themed('textPrimary');
+    }
+}
+
+a {
+    text-decoration: none;
+
+    @include themify.themify() {
+        color: themify.themed('textPrimary');
+    }
+}
+
+.pop-context {
+    z-index: 10000 !important;
+}
+
+.toRight {
+    float: right;
+}
+
+.shadowed {
+    @include themify.themify() {
+        box-shadow: themify.themed('boxShadow');
+    }
+}
+
+.blueGradient {
+    @include themify.themify() {
+        background: themify.themed('blueGradient');
+    }
+}
+
+.greenGradient {
+    @include themify.themify() {
+        background: themify.themed('greenGradient');
+    }
+}
+
+.orangeGradient {
+    @include themify.themify() {
+        background: themify.themed('orangeGradient');
+    }
+}
+
+.hideOnLargeScreen {
+    display: none;
+}
+
+// small screen styles
+@media screen and (max-width: 900px) {
+    .content {
+        width: 100%;
+    }
+
+    .hideOnSmallScreen {
+        display: none !important;
+    }
+}
