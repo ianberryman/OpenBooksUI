@@ -6,7 +6,7 @@ ReactJS front end for [OpenBooks](https://github.com/berryman17/OpenBooks). This
 ![OpenBooks UI Concept](https://i.ibb.co/LJSfsn1/Open-Books-concept-01-25-2020.png "OpenBooks UI Concept")
 
 
-## Run / Test / Build
+## Dev / Test / Build
 
 
 Run dev server with hot-reload <br/>
@@ -23,3 +23,7 @@ Build for prod <br/>
 
 If you have serve installed (`npm i serve -g`), you can imitate production by serving the dist folder:
 `serve dist` 
+
+## Docker
+You can also pull and run the [Docker image](https://hub.docker.com/r/ianberryman/openbooks-ui): <br/>
+`docker pull ianberryman/openbooks-ui`
