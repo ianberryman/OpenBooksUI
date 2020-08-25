@@ -16,7 +16,7 @@ Jest <br/>
 `npm test`
 
 Build for prod <br/>
-`npm run uild`
+`npm run build`
 
 If you have serve installed (`npm i serve -g`), you can imitate production by serving the dist folder:
 `serve dist` 
