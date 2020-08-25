@@ -11,6 +11,8 @@ ReactJS front end for [OpenBooks](https://github.com/berryman17/OpenBooks). This
 
 Run dev server with hot-reload <br/>
 ```
+git clone https://github.com/berryman17/OpenBooksUI.git
+cd OpenBooksUI
 npm install
 npm start
 ```
