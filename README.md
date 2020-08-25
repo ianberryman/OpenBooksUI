@@ -10,7 +10,10 @@ ReactJS front end for [OpenBooks](https://github.com/berryman17/OpenBooks). This
 
 
 Run dev server with hot-reload <br/>
-`npm start`
+```
+npm install
+npm start
+```
 
 Jest <br/>
 `npm test`
