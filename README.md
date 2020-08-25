@@ -27,3 +27,6 @@ If you have serve installed (`npm i serve -g`), you can imitate production by se
 ## Docker
 You can also pull and run the [Docker image](https://hub.docker.com/r/ianberryman/openbooks-ui): <br/>
 `docker pull ianberryman/openbooks-ui`
+
+Then to run: <br/>
+`docker run -p 8080:80 ianberryman/openbooks-ui`
