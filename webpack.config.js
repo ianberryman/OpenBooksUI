@@ -1,6 +1,8 @@
 const path = require("path");
 const webpack = require("webpack");
-//require('dotenv').config();
+const dotenv = require('dotenv').config( {
+    path: path.join(__dirname, '.env')
+} );
 
 module.exports = {
     entry: "./src/index.js",
@@ -48,8 +50,11 @@ module.exports = {
     plugins: [
         new webpack.HotModuleReplacementPlugin(),
         // makes dotenv variables available during build
-        /*new webpack.DefinePlugin({
-            'process.env': JSON.stringify(process.env)
-        })*/
+        new webpack.DefinePlugin({
+            'process.env': {
+                "API_SERVER": JSON.stringify(dotenv.parsed.API_SERVER),
+                "AUTH_CALLBACK_URI": JSON.stringify(dotenv.parsed.AUTH_CALLBACK_URI)
+            }
+        })
     ]
 };
