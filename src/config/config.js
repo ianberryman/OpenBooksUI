@@ -7,7 +7,7 @@ export const config = {
     oidc: {
         clientId: CLIENT_ID,
         issuer: ISSUER,
-        redirectUri: 'https://192.168.1.10:3000/auth/callback',
+        redirectUri: process.env.AUTH_CALLBACK_URI,
         scopes: ['openid', 'profile', 'email'],
         pkce: true,
         disableHttpsCheck: OKTA_TESTING_DISABLEHTTPSCHECK,
@@ -16,7 +16,7 @@ export const config = {
         }
     },
     api: {
-        server: process.env.API_SERVER || "https://192.168.1.10:8443",
+        server: process.env.API_SERVER,
         basePath: process.env.API_BASE_PATH || "/api/v1",
     },
     redux: {

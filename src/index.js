@@ -8,6 +8,7 @@ import store from "./store/store";
 import {config} from "./config/config";
 import setTheme from './styles/themeSelector';
 import actions from './reducers/boundActionCreators';
+import * as api from './api/api';
 
 // determine if this is a small screen
 actions.updateIsScreenSmall(window.innerWidth < 900);
