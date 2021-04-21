@@ -8,7 +8,6 @@ import store from "./store/store";
 import {config} from "./config/config";
 import setTheme from './styles/themeSelector';
 import actions from './reducers/boundActionCreators';
-import * as api from './api/api';
 
 // determine if this is a small screen
 actions.updateIsScreenSmall(window.innerWidth < 900);
@@ -18,8 +17,6 @@ window.addEventListener("resize", function() {
 
 //set theme using system defaults or local storage
 setTheme();
-
-console.log(store.getState())
 
 function App() {
 

@@ -12,13 +12,7 @@ export default function MainMenuItem(props) {
         <NavLink to={props.href}>
             <ListItem button
                       selected={props.isSelected}
-                      className={() => {
-                          if (props.isSelected) {
-                              return "selected";
-                          } else {
-                              return ""
-                          }
-                      }}
+                      className={props.isSelected ? "selected" : ""}
             >
                 <ListItemIcon>
                     {props.icon}
