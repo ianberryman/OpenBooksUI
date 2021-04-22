@@ -1,9 +1,12 @@
 import React from 'react';
 import clsx from 'clsx';
 import QuickCountTile from '../components/QuickCountTile';
-import TrendsTile from '../components/TrendsTile';
+import TrendsWidget from '../components/TrendsWidget';
+import CalendarWidget from '../components/CalendarWidget';
+import ExpenseRevenueWidget from '../components/ExpenseRevenueWidget';
 import CustomerActivityTile from '../components/CustomerActivityTile';
 import '../styles/dashboard.scss';
+import Accounts from './Accounts';
 
 const drawerWidth = 240;
 
@@ -52,10 +55,12 @@ export default function Dashboard() {
                 />
             </div>
             <div className={"dashboardGrid"}>
-                <TrendsTile title="Trends" className={"tile trendsTile"} xs={12} md={12} lg={12}/>
-                <TrendsTile title="Expense/Revenue" className={"tile sumamryTile"} xs={12} md={12} lg={12}/>
-                <TrendsTile title="Calendar" className={"tile calendarTile"} xs={12} md={12} lg={12}/>
-                <CustomerActivityTile title="Customer Activity" className={"tile customerActivityTile"} xs={12} md={12} lg={12}/>
+                <TrendsWidget title="Trends" className={"tile trendsTile"} xs={12} md={12} lg={12}/>
+                <ExpenseRevenueWidget title="Expense/Revenue" className={"tile sumamryTile"} xs={12} md={12} lg={12}/>
+                <CalendarWidget title="Calendar" className={"tile calendarTile"} xs={12} md={12} lg={12}/>
+                <CustomerActivityTile title="Customer Activity" className={"tile customerActivityTile"} xs={12} md={12} lg={12}>
+                    <Accounts />
+                </CustomerActivityTile>
             </div>
         </div>
     );

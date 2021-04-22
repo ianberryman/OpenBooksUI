@@ -3,4 +3,3 @@ import { config } from "../config/config";
 import actions from '../reducers/boundActionCreators';
 
 export const serverPath = config.getServerPath();
-console.log(serverPath)

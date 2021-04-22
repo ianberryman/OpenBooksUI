@@ -15,19 +15,13 @@ describe('reducers', () => {
             uiReducer(undefined, {
                 type: uiActions.UPDATE_IS_SCREEN_SMALL,
                 payload: true
-            })).toEqual({
-                isScreenSmall: true,
-                theme: ''
-            });
+            }).isScreenSmall).toEqual(true);
 
         expect(
             uiReducer({isScreenSmall: true, theme: 'dark'}, {
                 type: uiActions.UPDATE_IS_SCREEN_SMALL,
                 payload: false
-            })).toEqual({
-                isScreenSmall: false,
-                theme: 'dark'
-            });
+            }).isScreenSmall).toEqual(false);
     });
 
 

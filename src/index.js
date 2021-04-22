@@ -8,7 +8,7 @@ import store from "./store/store";
 import {config} from "./config/config";
 import setTheme from './styles/themeSelector';
 import actions from './reducers/boundActionCreators';
-import * as api from './api/api';
+import RootStore from './store/RootStore';
 
 // determine if this is a small screen
 actions.updateIsScreenSmall(window.innerWidth < 900);
@@ -19,17 +19,26 @@ window.addEventListener("resize", function() {
 //set theme using system defaults or local storage
 setTheme();
 
-console.log(store.getState())
+export const MobxContext = React.createContext();
+const MobxProvider = (({ store, children }) => {
+    return (
+        <MobxContext.Provider value={store}>
+            {children}
+        </MobxContext.Provider>
+    );
+});
 
 function App() {
 
     return (
         <Provider store={store}>
-            <Router>
-                <Switch>
-                    <Route path="/" component={Home}></Route>
-                </Switch>
-            </Router>
+            <MobxProvider store={new RootStore()}>
+                <Router>
+                    <Switch>
+                        <Route path="/" component={Home}></Route>
+                    </Switch>
+                </Router>
+            </MobxProvider>
         </Provider>
     );
 }
