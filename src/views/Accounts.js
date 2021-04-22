@@ -24,7 +24,7 @@ const classes = {
     },
 };
 
-export function Accounts(props) {
+function Accounts(props) {
     const accountsStore = useContext(MobxContext).accountsStore;
 
     const columns = [
@@ -33,11 +33,8 @@ export function Accounts(props) {
     ];
 
     return (
-        <Paper style={{ height: '90vh', width: '100%' }}>
-            <button onClick={() => {
-                console.log("Adding account");
-                accountsStore.addAccount({ id: Math.random(), col1: 'Material-UI', col2: 'is Amazing' })}
-             }>Add</button>
+        <Paper style={{ height: '90vh', width: '100%' }} className="paper">
+            <button onClick={() => accountsStore.addAccount({ id: Math.random(), col1: 'Material-UI', col2: 'is Amazing' })}>Add</button>
             <DataGrid rows={accountsStore.accounts.slice()} columns={columns} />
         </Paper>
     );

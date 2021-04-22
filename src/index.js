@@ -20,18 +20,25 @@ window.addEventListener("resize", function() {
 setTheme();
 
 export const MobxContext = React.createContext();
+const MobxProvider = (({ store, children }) => {
+    return (
+        <MobxContext.Provider value={store}>
+            {children}
+        </MobxContext.Provider>
+    );
+});
 
 function App() {
 
     return (
         <Provider store={store}>
-            <MobxContext.Provider value={new RootStore()}>
+            <MobxProvider store={new RootStore()}>
                 <Router>
                     <Switch>
                         <Route path="/" component={Home}></Route>
                     </Switch>
                 </Router>
-            </MobxContext.Provider>
+            </MobxProvider>
         </Provider>
     );
 }
