@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import clsx from 'clsx';
 import {
     DataGrid
@@ -6,6 +6,8 @@ import {
 import '../styles/dashboard.scss';
 import AccountsStore from '../store/AccountsStore';
 import { observer, useObserver } from 'mobx-react-lite';
+import { MobxContext } from '../index';
+import { Paper } from '@material-ui/core';
 
 
 const classes = {
@@ -22,19 +24,23 @@ const classes = {
     },
 };
 
-export default observer(({ accountsStore }) => {
+export function Accounts(props) {
+    const accountsStore = useContext(MobxContext).accountsStore;
 
     const columns = [
         { field: 'col1', headerName: 'Column 1', width: 150 },
         { field: 'col2', headerName: 'Column 2', width: 150 },
     ];
-//{accountsStore.accounts.map(acct => {
-//     return <li key={acct.id}>{acct.id}</li>
-// })}
+
     return (
-        <div style={{ height: 300, width: '100%' }}>
-            <button onClick={() => accountsStore.addAccount({ id: Math.random(), col1: 'Material-UI', col2: 'is Amazing' })} >Add</button>
-            <DataGrid rows={accountsStore.accounts.slice()} columns={columns} />      
-        </div>
+        <Paper style={{ height: '90vh', width: '100%' }}>
+            <button onClick={() => {
+                console.log("Adding account");
+                accountsStore.addAccount({ id: Math.random(), col1: 'Material-UI', col2: 'is Amazing' })}
+             }>Add</button>
+            <DataGrid rows={accountsStore.accounts.slice()} columns={columns} />
+        </Paper>
     );
-});
+}
+
+export default observer(Accounts);

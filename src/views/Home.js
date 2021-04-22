@@ -87,10 +87,7 @@ function Home(props) {
                         <Route path={`/customers`} component={Dashboard} />
                         <Route path={`/vendors`} component={Dashboard} />
                         <Route path={["/calendar"]} component={Dashboard}></Route>
-                        <Route path={["/accounts"]} render={(props) => {
-                            console.log(accountsStore)
-                            return <Accounts {...props} accountsStore={accountsStore} />
-                        }}></Route>
+                        <Route path={["/accounts"]} component={Accounts}></Route>
                         <Route path={["/reports"]} component={Dashboard}></Route>
                         <Redirect from={"/"} to={"/dashboard"} />
                     </Switch>

@@ -1,22 +1,23 @@
-import { computed, makeAutoObservable, observable, action } from "mobx";
+import { computed, makeObservable, observable, action } from "mobx";
 
 
 export default class AccountsStore {
-    accountList = [
+    @observable accountList = [
         { id: 1, col1: 'Hello', col2: 'World' },
         { id: 2, col1: 'XGrid', col2: 'is Awesome' },
         { id: 3, col1: 'Material-UI', col2: 'is Amazing' },
     ]
 
-    constructor() {
-        makeAutoObservable(this);
+    constructor(rootStore) {
+        this.rootStore = rootStore;
+        makeObservable(this);
     }
 
-    get accounts() {
+    @computed get accounts() {
         return this.accountList;
     }
 
-    addAccount(account) {
+    @action.bound addAccount(account) {
         this.accountList.push(account);
     }
 }

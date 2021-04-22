@@ -13,8 +13,7 @@ export default function CustomerActivityTile(props) {
             <Grid container direction={"column"}>
                 <Grid item>
                     <Typography className={"title"}>{props.title}</Typography>
-                    <List>
-                    </List>
+                    {props.children}
                 </Grid>
             </Grid>
         </Paper>
