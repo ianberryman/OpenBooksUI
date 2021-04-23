@@ -37,12 +37,16 @@ function Accounts(props) {
     return (
         <Paper style={{ height: '90vh', width: '100%' }} className="paper">
             <button onClick={() => accountsStore.addAccount({currency: 'USD', rate: '1.00' })}>Add</button>
-            <select>
+            <select onChange={(event) => {
+                accountsStore.retrieveExchangeRatesByCurrency(event.target.value)
+            }}>
                 {accountsStore.exchangeRates.map(rate => {
-                    return <option key={rate.id} value={rate.id}>{rate.currency}</option>
+                    return <option key={rate.id} value={rate.currency}>{rate.currency}</option>
                 })}
             </select>
-            <DataGrid rows={accountsStore.exchangeRates} columns={columns} />            
+            <DataGrid rows={accountsStore.exchangeRates} columns={columns} onCellClick={(cell, event) => {
+                cell.row.setRate("changed");
+            }} />            
         </Paper>
     );
 }

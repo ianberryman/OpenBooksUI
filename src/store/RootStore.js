@@ -6,7 +6,7 @@ import UiStore from './UiStore';
      constructor() {
                  // testing endpoint
         this.apolloClient = new ApolloClient({
-            uri: 'https://48p1r2roz4.sse.codesandbox.io',
+            uri: process.env.API_HOST,
             cache: new InMemoryCache()
         });
         this.accountsStore = new AccountsStore(this);

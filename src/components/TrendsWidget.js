@@ -58,14 +58,14 @@ export default function TrendsWidget(props) {
                 <rect fill={`url(#${key})`} width={width} height={height} />
                 <defs>
                     <linearGradient id={key} x1="0%" y1="0%" x2="0%" y2="100%" gradientUnits="userSpaceOnUse">
-                            <stop offset="0" stop-color="#f0a714" />
-                            <stop offset="0.14285714285714285" stop-color="#f39a00" />
-                            <stop offset="0.2857142857142857" stop-color="#f58c00" />
-                            <stop offset="0.42857142857142855" stop-color="#f87d00" />
-                            <stop offset="0.5714285714285714" stop-color="#fa6d00" />
-                            <stop offset="0.7142857142857142" stop-color="#fc5a00" />
-                            <stop offset="0.8571428571428571" stop-color="#fe4300" />
-                            <stop offset="1" stop-color="#ff2100" />
+                            <stop offset="0" stopColor="#f0a714" />
+                            <stop offset="0.14285714285714285" stopColor="#f39a00" />
+                            <stop offset="0.2857142857142857" stopColor="#f58c00" />
+                            <stop offset="0.42857142857142855" stopColor="#f87d00" />
+                            <stop offset="0.5714285714285714" stopColor="#fa6d00" />
+                            <stop offset="0.7142857142857142" stopColor="#fc5a00" />
+                            <stop offset="0.8571428571428571" stopColor="#fe4300" />
+                            <stop offset="1" stopColor="#ff2100" />
                     </linearGradient>
                 </defs>
             </svg>
@@ -79,14 +79,14 @@ export default function TrendsWidget(props) {
                 <rect fill={`url(#${key})`} width={width} height={height} />
                 <defs>
                     <linearGradient id={key} x1="0%" y1="0%" x2="0%" y2="100%" gradientUnits="userSpaceOnUse">
-                        <stop offset="0" stop-color="#14f06c" />
-                        <stop offset="0.14285714285714285" stop-color="#00ea9a" />
-                        <stop offset="0.2857142857142857" stop-color="#00e1c5" />
-                        <stop offset="0.42857142857142855" stop-color="#00d6e8" />
-                        <stop offset="0.5714285714285714" stop-color="#00c9ff" />
-                        <stop offset="0.7142857142857142" stop-color="#00b9ff" />
-                        <stop offset="0.8571428571428571" stop-color="#00a7ff" />
-                        <stop offset="1" stop-color="#0093ff" />
+                        <stop offset="0" stopColor="#14f06c" />
+                        <stop offset="0.14285714285714285" stopColor="#00ea9a" />
+                        <stop offset="0.2857142857142857" stopColor="#00e1c5" />
+                        <stop offset="0.42857142857142855" stopColor="#00d6e8" />
+                        <stop offset="0.5714285714285714" stopColor="#00c9ff" />
+                        <stop offset="0.7142857142857142" stopColor="#00b9ff" />
+                        <stop offset="0.8571428571428571" stopColor="#00a7ff" />
+                        <stop offset="1" stopColor="#0093ff" />
                     </linearGradient>
                 </defs>
             </svg>

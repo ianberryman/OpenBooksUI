@@ -52,7 +52,7 @@ module.exports = {
         // makes dotenv variables available during build
         new webpack.DefinePlugin({
             'process.env': {
-                "API_SERVER": JSON.stringify(dotenv.parsed.API_SERVER),
+                "API_HOST": JSON.stringify(dotenv.parsed.API_HOST),
                 "AUTH_CALLBACK_URI": JSON.stringify(dotenv.parsed.AUTH_CALLBACK_URI)
             }
         })
