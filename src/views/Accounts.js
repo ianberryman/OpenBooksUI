@@ -45,7 +45,7 @@ function Accounts(props) {
                 })}
             </select>
             <DataGrid rows={accountsStore.exchangeRates} columns={columns} onCellClick={(cell, event) => {
-                cell.row.setRate("changed");
+                cell.row.setRate(1.010101);
             }} />            
         </Paper>
     );

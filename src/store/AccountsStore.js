@@ -33,8 +33,13 @@ export default class AccountsStore {
     async retrieveExchangeRatesByCurrency(currency) {
         var response = await this.apiClient.getExchangeRates(currency);
         runInAction(()=> {
-            this.exchangeRateList = response.data.rates.map(rate => new ExchangeRate(this, { ...rate, id: Math.random() } ))
+            this.exchangeRateList = response.data.exchangeRates.map(rate => new ExchangeRate(this, { ...rate, id: Math.random() } ))
         });
+    }
+
+    @action.bound async changeExchangeRateByCurrency(currency, newRate) {
+        var response = await this.apiClient.changeExchangeRateBuCurrency(currency, newRate);
+        var rate = this.exchangeRateList.find(rate => rate.currency === currency);
     }
 }
 
@@ -66,7 +71,10 @@ export class ExchangeRate {
 
         this.save = reaction(
             () => this.asJson(),
-            json => console.log("send to server")
+            json => {
+                console.log("saving to server", json);
+                this.store.changeExchangeRateByCurrency(json.currency, json.rate);
+            }
         )
     }
 
