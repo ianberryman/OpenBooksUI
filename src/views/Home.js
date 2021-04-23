@@ -19,7 +19,6 @@ import SettingsIcon from "../components/SettingsIcon";
 import {Redirect, Route, Switch, useRouteMatch} from "react-router-dom";
 import {connect} from 'react-redux';
 import AvatarIcon from '../components/AvatarIcon';
-import AccountsStore from '../store/AccountsStore';
 
 
 const mapStateToProps = (state) => {
@@ -32,8 +31,6 @@ const mapStateToProps = (state) => {
 function Home(props) {
     const [open, setOpen] = useState(false);
     const {path, url} = useRouteMatch();
-
-    const accountsStore = new AccountsStore();
 
     const handleDrawerOpen = () => {
         setOpen(true);

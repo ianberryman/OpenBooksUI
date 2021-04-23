@@ -6,18 +6,15 @@ import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import {Provider} from 'react-redux';
 import store from "./store/store";
 import {config} from "./config/config";
-import setTheme from './styles/themeSelector';
 import actions from './reducers/boundActionCreators';
 import RootStore from './store/RootStore';
+import { ApolloProvider } from '@apollo/client/react';
 
 // determine if this is a small screen
 actions.updateIsScreenSmall(window.innerWidth < 900);
 window.addEventListener("resize", function() {
     actions.updateIsScreenSmall(window.innerWidth < 900);
 });
-
-//set theme using system defaults or local storage
-setTheme();
 
 export const MobxContext = React.createContext();
 const MobxProvider = (({ store, children }) => {
@@ -28,17 +25,23 @@ const MobxProvider = (({ store, children }) => {
     );
 });
 
+export const rootStore = new RootStore();
+
+rootStore.uiStore.setTheme("light");
+
 function App() {
 
     return (
         <Provider store={store}>
-            <MobxProvider store={new RootStore()}>
-                <Router>
-                    <Switch>
-                        <Route path="/" component={Home}></Route>
-                    </Switch>
-                </Router>
-            </MobxProvider>
+            <ApolloProvider client={rootStore.apolloClient}>
+                <MobxProvider store={rootStore}>
+                    <Router>
+                        <Switch>
+                            <Route path="/" component={Home}></Route>
+                        </Switch>
+                    </Router>
+                </MobxProvider>
+            </ApolloProvider>
         </Provider>
     );
 }

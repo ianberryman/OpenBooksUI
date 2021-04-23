@@ -1,3 +1,4 @@
+import React, { useState, useContext } from "react";
 import Avatar from '@material-ui/core/Avatar';
 import Typography from '@material-ui/core/Typography';
 import IconButton from "@material-ui/core/IconButton";
@@ -5,18 +6,12 @@ import MaterialSettingsIcon from "@material-ui/icons/Settings";
 import MenuItem from "@material-ui/core/MenuItem";
 import Toolbar from "@material-ui/core/Toolbar";
 import Switch from '@material-ui/core/Switch';
-import React, { useState } from "react";
 import ContextMenu from "./ContextMenu";
-import { connect } from 'react-redux';
-import setTheme from '../styles/themeSelector';
-
-const mapStateToProps = (state) => {
-    return {
-        theme: state.ui.theme
-    }
-}
+import { observer } from 'mobx-react-lite';
+import { MobxContext } from '../index';
 
 function AvatarIcon(props) {
+    const uiStore = useContext(MobxContext).uiStore;
 
     const [open, setOpen] = useState(false);
     const [anchorEl, setAnchorEl] = useState(null);
@@ -45,8 +40,8 @@ function AvatarIcon(props) {
                 <MenuItem onClick={(event) => event.stopPropagation()}
                           className={"pop-context settings menuitem"}>
                     <Typography>Dark Mode</Typography>
-                    <Switch checked={props.theme === 'dark'}
-                            onChange={() => setTheme(props.theme === 'dark' ? 'light' : 'dark')}
+                    <Switch checked={uiStore.theme === 'dark'}
+                            onChange={() => uiStore.setTheme(uiStore.theme === 'dark' ? 'light' : 'dark')}
                             name="toggleDarkMode" />
                 </MenuItem>
             </ContextMenu>
@@ -54,4 +49,4 @@ function AvatarIcon(props) {
     );
 }
 
-export default connect(mapStateToProps)(AvatarIcon);
+export default observer(AvatarIcon);
