@@ -16,12 +16,8 @@ export const config = {
         }
     },
     api: {
-        server: process.env.API_SERVER,
+        server: process.env.API_HOST,
         basePath: process.env.API_BASE_PATH || "/api/v1",
-    },
-    redux: {
-        // devMode enables store logging
-        devMode: true
     },
     ui: {
         initialViewPath: "/dashboard"

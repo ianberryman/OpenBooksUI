@@ -24,18 +24,29 @@ const classes = {
     },
 };
 
+//
+
 function Accounts(props) {
     const accountsStore = useContext(MobxContext).accountsStore;
 
     const columns = [
-        { field: 'col1', headerName: 'Column 1', width: 150 },
-        { field: 'col2', headerName: 'Column 2', width: 150 },
+        { field: 'currency', headerName: 'Currency', width: 150 },
+        { field: 'rate', headerName: 'Rate', width: 150 },
     ];
 
     return (
         <Paper style={{ height: '90vh', width: '100%' }} className="paper">
-            <button onClick={() => accountsStore.addAccount({ id: Math.random(), col1: 'Material-UI', col2: 'is Amazing' })}>Add</button>
-            <DataGrid rows={accountsStore.accounts.slice()} columns={columns} />
+            <button onClick={() => accountsStore.addAccount({currency: 'USD', rate: '1.00' })}>Add</button>
+            <select onChange={(event) => {
+                accountsStore.retrieveExchangeRatesByCurrency(event.target.value)
+            }}>
+                {accountsStore.exchangeRates.map(rate => {
+                    return <option key={rate.id} value={rate.currency}>{rate.currency}</option>
+                })}
+            </select>
+            <DataGrid rows={accountsStore.exchangeRates} columns={columns} onCellClick={(cell, event) => {
+                cell.row.setRate(1.010101);
+            }} />            
         </Paper>
     );
 }

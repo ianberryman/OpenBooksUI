@@ -17,14 +17,12 @@ import SearchInput from "../components/SearchInput";
 import Logo from "../components/Logo";
 import SettingsIcon from "../components/SettingsIcon";
 import {Redirect, Route, Switch, useRouteMatch} from "react-router-dom";
-import {connect} from 'react-redux';
 import AvatarIcon from '../components/AvatarIcon';
-import AccountsStore from '../store/AccountsStore';
 
 
 const mapStateToProps = (state) => {
     return {
-        userInitial: state.userInitial || "TU",
+        userInitial: state.userInitial || "IB",
         isScreenSmall: state.ui.isScreenSmall
     }
 };
@@ -32,8 +30,6 @@ const mapStateToProps = (state) => {
 function Home(props) {
     const [open, setOpen] = useState(false);
     const {path, url} = useRouteMatch();
-
-    const accountsStore = new AccountsStore();
 
     const handleDrawerOpen = () => {
         setOpen(true);
@@ -97,4 +93,4 @@ function Home(props) {
     );
 }
 
-export default connect(mapStateToProps)(Home);
+export default Home;
